@@ -10,7 +10,7 @@ def sumEvenFibs(under):
     previous = 0
     fib = 1
     acc =0
-    while fib < under:
+    while fib <= under:
         if fib % 2 == 0:
             acc += fib
         tempFib = fib
