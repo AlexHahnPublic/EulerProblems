@@ -1,0 +1,22 @@
+# Euler Problem 4:
+# A palindrome number reads the same both ways. The largest palindrome made
+# from the product of two 2-digit numbers is 9009= 91 x 99.
+# Find the largest palindrome madefrom the product of two 3 digit numbers
+
+# This problem is easy to brute force, we're more mature than that. My general
+# approach is two start at 999*999 and while isPalindrome is false compute
+# the next largest number. This is slightly harder than it sounds because
+# coming up with a function/ iteration that gives the next largest number
+# from the product of two numbers isn't exactly straightforward
+
+def findLargestPalindromeProduct(n):
+    factor1 = n
+    factor2 = n
+    counter1 = 1
+    counter2 = 1
+    while factor1*factor2 != 0 #ispalindrome(factor1*factor2)
+        print "factor1 is: ", factor1, " factor2 is: ", factor2, "and their
+        product is: ", factor1*factor2
+        factor1 = 
+        for i in range(counter1):
+
