@@ -23,18 +23,13 @@ def largestPrimeFactor(n):
    # that checks whether the modulo is an integer root of the number, if true
    # then just exit the loop, if false continue into the inner loop
     while i * i <= n:
-        print "inner loop, i is currently: ", i
-        while n%i == 0:
-            print n,"(mod ", i, ")=0"
+        while n%i == 0 and i != n:
             n /= i
-            print "So divide n by ", i, "so n= ",n
         i = i + 1 # Someone once told me increment this by 2 coz "it's faster
                   # in larger n", this can only be done after 2 and 3 is 
                   #completely factored out.. not sure worth the code change
-        print "outside inner loop, increment i, i is now: ", i
     print n
 
 if __name__ == "__main__":
     import sys
     largestPrimeFactor(int(sys.argv[1]))
-
