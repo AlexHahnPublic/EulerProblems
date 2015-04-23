@@ -28,7 +28,7 @@ def isPalindrome(strnum):
     else:
         return False
 
-# Onlt check 100+99+98+... =n numbers at a time, if a palindrome is found,
+# Only check 100+99+98+... =n numbers at a time, if a palindrome is found,
 # stop
 def findLargestPalindromeProduct_OkButNotGreat(n):
     palindromeFound = False
@@ -42,13 +42,10 @@ def findLargestPalindromeProduct_OkButNotGreat(n):
         orderedlst = sorted(uniqlst)
         for num in orderedlst:
             if isPalindrome(str(num)):
-                print num
                 largestPalindromeProduct = num
                 palindromeFound = True
         n = n-100
     print largestPalindromeProduct
-        
-
 
 #def findLargestPalindromeProduct_Analytic(n):
 #    factor1 = n
@@ -60,5 +57,10 @@ def findLargestPalindromeProduct_OkButNotGreat(n):
 #        product is: ", factor1*factor2
 #        factor1 = 
 #        for i in range(counter1):
-#
+
+if __name__ == "__main__":
+    import sys
+    findLargestPalindromeProduct_OkButNotGreat(int(sys.argv[1]))
+
+
 
