@@ -4,9 +4,10 @@
 #       1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
 # By considering the terms in the Fibonacci sequence whose values do not
 # exceed four million, find the sum of the even-valued terms
-
+import time
 
 def sumEvenFibs(under):
+    start_time = time.time()
     previous = 0
     fib = 1
     acc =0
@@ -16,7 +17,9 @@ def sumEvenFibs(under):
         tempFib = fib
         fib += previous
         previous = tempFib
-    print acc
+    total_time = time.time() - start_time
+    print "The sum of the Fibonacci numbers under 4 million is:", acc
+    print "This program took:", total_time, "seconds to run"
 
 if __name__ == "__main__":
     import sys
