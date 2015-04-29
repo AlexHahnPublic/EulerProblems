@@ -31,8 +31,7 @@ def sumEvenFibs(under):
         total += currEvenFib
         currEvenFib = round(currEvenFib*dist3terms)
     total_time = time.time() - start_time
-    print "The sum of all the Fibonacci numbers that do not exceed 4 million
-    is:", total
+    print "The sum of all the Fibonacci numbers that do not exceed", under, "is:", int(total)
     print "This program took:", total_time, "seconds to run"
 
 if __name__ == "__main__":

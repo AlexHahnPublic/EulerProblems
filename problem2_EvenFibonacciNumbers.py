@@ -18,7 +18,7 @@ def sumEvenFibs(under):
         fib += previous
         previous = tempFib
     total_time = time.time() - start_time
-    print "The sum of the Fibonacci numbers under 4 million is:", acc
+    print "The sum of the Fibonacci numbers under", under, "is:", acc
     print "This program took:", total_time, "seconds to run"
 
 if __name__ == "__main__":

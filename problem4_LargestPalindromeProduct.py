@@ -9,9 +9,10 @@
 # coming up with a function/ iteration that gives the next largest number
 # from the product of two numbers isn't exactly straightforward
 
+import time
 
 # Cheap Solution: calculate all the combinations/ products of 900-999 sort
-# largest first, then check isPalendrome
+# largest first, then check isPalendrome, (decrease by 100 each time)
 
 # Recursive function isPalindrome to check if a number is a
 # palindrome. Probably could be written a little cleaner but whatever
@@ -31,6 +32,8 @@ def isPalindrome(strnum):
 # Only check 100+99+98+... =n numbers at a time, if a palindrome is found,
 # stop
 def findLargestPalindromeProduct_OkButNotGreat(n):
+    orig = n
+    start_time = time.time()
     palindromeFound = False
     while n > 0 and palindromeFound == False:
         lst = []
@@ -45,7 +48,9 @@ def findLargestPalindromeProduct_OkButNotGreat(n):
                 largestPalindromeProduct = num
                 palindromeFound = True
         n = n-100
-    print largestPalindromeProduct
+        total_time = time.time() - start_time
+    print "The largest palindrome product of two numbers, both under", orig, "is", largestPalindromeProduct
+    print " This program took:", total_time, "seconds to run"
 
 #def findLargestPalindromeProduct_Analytic(n):
 #    factor1 = n
@@ -55,7 +60,7 @@ def findLargestPalindromeProduct_OkButNotGreat(n):
 #    while factor1*factor2 != 0 #ispalindrome(factor1*factor2)
 #        print "factor1 is: ", factor1, " factor2 is: ", factor2, "and their
 #        product is: ", factor1*factor2
-#        factor1 = 
+#        factor1 =
 #        for i in range(counter1):
 
 if __name__ == "__main__":

@@ -8,7 +8,10 @@
 # Find the difference between the sum of the squares of the first one hundred
 # natural numbers and the square of the sum.
 
+import time
+
 def difOfSquares(n):
+    start_time = time.time()
     sumOfSquares = 0
     squareOfSums = 0
     for i in range(1,n+1):
@@ -16,7 +19,8 @@ def difOfSquares(n):
         squareOfSums += i
     squareOfSums = squareOfSums**2
     difference = squareOfSums - sumOfSquares
-    print difference
+    total_time = time.time() - start_time
+    print "The difference between the sum of the squares of the first", n, "natural number and the square of the sum is:", difference
 
 if __name__ == "__main__":
     import sys

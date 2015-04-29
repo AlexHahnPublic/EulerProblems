@@ -17,15 +17,13 @@ def largestPrimeFactor(n):
    # prime if a number < sqrt(n) divides it, but more importantly must be prime
    # if no integers< sqrt(n) divide it). TODO: Prove it^^
     while i * i <= n:
-        print "inner loop, i is currently: ", i
         while n%i == 0:
-            print n,"(mod ", i, ")=0"
             n /= i
-            print "So divide n by ", i, "so n= ",n
         i = i + 1 # TODO: Someone once told me increment this by 2 coz "it's faster,
                   #not sure about that, need to check, kinda makes sense
-        print "outside inner loop, increment i, i is now: ", i
-    print n
+    total_time = time.time() - start_time
+    print "The largest prime factor of the number", original_n, "is", n
+    print "This program took:", total_time, "seconds to run"
 
 if __name__ == "__main__":
     import sys
