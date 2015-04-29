@@ -1,6 +1,5 @@
 # Euler Problem 1:
-# If we list all the natural numbers below 10 that are multiples of 3 or 5, we
-# get 3, 5, 6, and 9. The sum of these multiples is 23
+# If we list all the natural numbers below 10 that are multiples of 3 or 5, we # get 3, 5, 6, and 9. The sum of these multiples is 23
 
 # SOLUTION
 
@@ -67,20 +66,21 @@
 # in a number to stay under, in this case 999 and returns the sum of all
 # numbers divisible by just 3 or 5
 import math
-
-# note can just use the fact that int division gives an int ie 10/3=3, or just
-# use int(10/3) but will use floor to make PERFECTLY clear what's going on
+import time
 
 def sumArithmeticSeries(numStayUnder,d):    # assuming starting at 0
-                                                     # so d = a_1
-   seriesSum = math.floor(numStayUnder/d)*(d+d*math.floor(numStayUnder/d))/2
-   return seriesSum
-
+                                            # so d = a_1
+    start_time = time.time()
+    seriesSum = math.floor(numStayUnder/d)*(d+d*math.floor(numStayUnder/d))/2
+    return seriesSum
 
 def sum3and5(n):
+    start_time = time.time()
     numStayUnder = n-1
     total = sumArithmeticSeries(numStayUnder,3) + sumArithmeticSeries(numStayUnder,5) - sumArithmeticSeries(numStayUnder,15)
-    print int(total)
+    total_time = time.time() - start_time
+    print "The sum of all the multiples of 3 and 5 below", n, "is", total
+    print "This program took:", total_time, "seconds to run"
 
 if __name__ == "__main__":
     import sys
