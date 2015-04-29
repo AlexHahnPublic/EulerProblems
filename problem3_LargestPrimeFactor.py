@@ -1,8 +1,10 @@
 # Euler Problem 3:
 # The prime factors of 13195 are, 5, 7, 13, and 29
 # What is the largest prime factor of the number 600851475143?
+import time
 
 def largestPrimeFactor(n):
+    start_time = time.time()
     original_n = n
     i = 2
    # This nex statement is often confused/ not stated correctly as "the largest
@@ -14,23 +16,14 @@ def largestPrimeFactor(n):
    # integer divisors to tell whether the number n is prime or not (obviously can't be
    # prime if a number < sqrt(n) divides it, but more importantly must be prime
    # if no integers< sqrt(n) divide it). TODO: Prove it^^
-   # Also TODO: this doesn't really work for numbers = prime^x (x an integer)
-   # because it will always satisfy n % i == 0, becomes rare the larger the
-   # number is but still, need to add in some sort of condition or subfunction.
-   # Actually upon further thought this won't work whenever the largest prime
-   # has multiplicity greater than 1... really need to fix! The only thing I
-   # can think of off the top of my head is to check the bool of a subfunction
-   # that checks whether the modulo is an integer root of the number, if true
-   # then just exit the loop, if false continue into the inner loop. So
-   # basically take the negation of the subfunction
     while i * i <= n:
         print "inner loop, i is currently: ", i
         while n%i == 0:
             print n,"(mod ", i, ")=0"
             n /= i
             print "So divide n by ", i, "so n= ",n
-        i = i + 1 # Someone once told me increment this by 2 coz "it's faster
-                  # in larger n", that spits in the face of twin primes lol
+        i = i + 1 # TODO: Someone once told me increment this by 2 coz "it's faster,
+                  #not sure about that, need to check, kinda makes sense
         print "outside inner loop, increment i, i is now: ", i
     print n
 
