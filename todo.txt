@@ -2,11 +2,11 @@ This is a list of things I'd like to still do while working through these Euler
 Problems^^
 
 Remaining ToDo's:
-  1) Add the timing code to all of the programs
-  2) Finish the correct, mathematical solution for problem 4
-  3) Investigate better timing methods
-  4) combine popular/ common functions into modules to import
-  5) write a test harness/ script that runs all of these? outputs a log file?
+  1) Finish the correct, mathematical solution for problem 4 (Newton polynomial? divided differnce?)
+  2) Investigate better timing methods/ conventions
+  3) combine popular/ common functions into modules to import
+  4) write a test harness/ script that runs all of these? outputs a log file?
+  5) After completing 25 problems go back and review/ tighten up code/ comments
 
 
 Solved ToDo's:
@@ -15,3 +15,4 @@ Solved ToDo's:
         for certain numbers (numbers where the multiplicity of the largest prime factor is greater than 1.
      SOLUTION:
         added condition that terminates division loop when divisor is the number itself.
+  2) Added timing code to all programs. Still should investigate more timing conventions
