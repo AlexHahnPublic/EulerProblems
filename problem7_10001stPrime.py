@@ -48,7 +48,7 @@ def findNthPrime(n):
 #    currNum = 2
 #    nums = range(1,n+1)
 #    while len nums > 1 and currNum < n
-#        multiplier = 
+#        multiplier =
 
 if __name__ == "__main__":
     import sys

@@ -9,7 +9,7 @@
 # Solution:
 # I think the best way to go about this is just to check the product of
 # the first 13 digits, then 2 to 14 digits, and so on and replace the
-# largest prod value if a bigger one is found. The only other thing I 
+# largest prod value if a bigger one is found. The only other thing I
 # could think about but I don't believe is worth the extra coding is if
 # you chop the number (string input) wherever there's a zero, then throw
 # out all strings less than length 13, and among those remaining run the

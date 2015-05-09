@@ -33,9 +33,9 @@ def smallestMultiple(n):
     # Create a key value dictionary with the prime decomp of each key
     for i in range(2,n+1):
         countdict[i] = primeFactors(i)  # dict of prime decomp up to n
-        
+
     # construct the correct list of numbers to multiple by taking the highest
-    # multiplicity of each prime factor in all the numbers up to n 
+    # multiplicity of each prime factor in all the numbers up to n
     for j in countdict:     # look at each key (number up to n)
         for k in countdict[j]: # a list of each keys prime decomp
             if toMult.count(k) == 0: # if a new number (has to be prime)
