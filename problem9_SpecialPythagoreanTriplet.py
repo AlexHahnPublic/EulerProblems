@@ -4,7 +4,7 @@
 #           a^2 + b^2 = c^2
 # For example 3^2 + 4^2 = 9 + 16 = 25 = 5^2.
 
-# There exists exactly one Pythagorean triplet for which a + b +c = 1000.
+# There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 # Find the product abc
 
 import time
@@ -40,14 +40,27 @@ def pythags(n):
 # Using a+b+c=1000 and distributing:
 #       1000a+1000b=500+ab
 # Finally:
-# 1000a+1000b+ab=500:
+# 1000a+1000b-ab=500:
+#
+# So simply solve for a nd b s.t. the above equation holds
 #
 # This still involves a double for loop so it would take about as much time as
 # the above solution. Working on a much more elegant solution
 
+def pythags2(n):
+    for i in range(1,(n+1)/2):
+        for j in range(1,(n+1)/2):
+            if 1000*i + 1000*j - i*j == 500:
+                print "a, b, and c are:", i, j, n-i-j
+                print "They multiply to:", i*j*(n-i-j)
+
+
+
+
+
 if __name__ == "__main__":
     import sys
-    pythags(int(sys.argv[1]))
+    pythags2(int(sys.argv[1]))
 
 
 
