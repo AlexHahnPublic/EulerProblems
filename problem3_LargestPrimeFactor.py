@@ -7,7 +7,7 @@ def largestPrimeFactor(n):
     start_time = time.time()
     original_n = n
     i = 2
-   # This nex statement is often confused/ not stated correctly as "the largest
+   # This next statement is often confused/ not stated correctly as "the largest
    # prime factor of a (composite) number is less than sqrt(n)". That's simply
    # not true, take a look at 14=7*2 and sqrt(14)=3 something. Really the
    # statement is: for every composite number there exists a prime p s.t.
@@ -17,7 +17,7 @@ def largestPrimeFactor(n):
    # prime if a number < sqrt(n) divides it, but more importantly must be prime
    # if no integers< sqrt(n) divide it). TODO: Prove it^^
     while i * i <= n:
-        while n%i == 0:
+        while n%i == 0 and n/i != 1:
             n /= i
         i = i + 1 # TODO: Someone once told me increment this by 2 coz "it's faster,
                   #not sure about that, need to check, kinda makes sense
