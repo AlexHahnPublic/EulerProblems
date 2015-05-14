@@ -2,12 +2,13 @@ This is a list of things I'd like to still do while working through these Euler
 Problems^^
 
 Remaining ToDo's:
-  1) Finish the correct, mathematical solution for problem 4 (Newton polynomial? divided differnce?)
-  2) Investigate better timing methods/ conventions
-  3) Combine popular/ common functions into modules to import
-  4) Write a test harness/ script that runs all of these? outputs a log file?
-  5) After completing 25 problems go back and review/ tighten up code/ comments
-  6) Code up the list comprehensions method for problem 8 (see thread), could learn a bit
+  1) problem 9, slightly more analytical solution isn't completely right yet
+  2) Finish the correct, mathematical solution for problem 4 (Newton polynomial? divided differnce?)
+  3) Investigate better timing methods/ conventions
+  4) Combine popular/ common functions into modules to import
+  5) Write a test harness/ script that runs all of these? outputs a log file?
+  6) After completing 25 problems go back and review/ tighten up code/ comments
+  7) Code up the list comprehensions method for problem 8 (see thread), could learn a bit
 
 
 Solved ToDo's:

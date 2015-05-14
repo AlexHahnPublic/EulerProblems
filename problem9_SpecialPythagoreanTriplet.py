@@ -47,6 +47,7 @@ def pythags(n):
 # This still involves a double for loop so it would take about as much time as
 # the above solution. Working on a much more elegant solution
 
+#TODO: not Correct yet but close!
 def pythags2(n):
     for i in range(1,(n+1)/2):
         for j in range(1,(n+1)/2):
@@ -60,7 +61,7 @@ def pythags2(n):
 
 if __name__ == "__main__":
     import sys
-    pythags2(int(sys.argv[1]))
+    pythags(int(sys.argv[1]))
 
 
 
