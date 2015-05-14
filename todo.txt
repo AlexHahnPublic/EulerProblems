@@ -9,7 +9,11 @@ Remaining ToDo's:
   5) Write a test harness/ script that runs all of these? outputs a log file?
   6) After completing 25 problems go back and review/ tighten up code/ comments
   7) Code up the list comprehensions method for problem 8 (see thread), could learn a bit
-
+  8.) Write up Mayoff's solution for problem number 9 (in thread). Although I'm not sure if that
+      matrix is efficient the code used to solve the for cases looks wonderful, short, concise but
+      yet abstract and powerful.
+  9.) Also Nmadnani's in the next solution, although brute force like mine, uses list comprehensions
+      well and would be good practice
 
 Solved ToDo's:
   1) PROBLEM:
