@@ -18,16 +18,12 @@
 # Initial thoughts: If we can find how the number of divisors grows with
 # increasing triangle number (NOT a monotone function) we can just
 # find where tri(x)=500 (or higher) and calculate that triangle number only.
+# using n(n+1)/2... I'm not sure if this is possible anymore
 # Otherwise the brute force method would be to (memoiz-ingly,
 # calculate each next triangle number, then run a subfunction to find it's
-# divisors.
+# divisors stop at > 500
 
-# Better thoughts (after thinking a while and realizing that generating the
-# next triangular number off of the last (even when memoized) is wayyy to
-# slow to get to a number that has 500 unique factors to it:
-# - The smallest number with 500 unique factors is intuitively
-# (1)(2)(3)...(500) = 500! = some ridiculously large number 
-# - Another fact that we may utilize is that we have a closed form
+# - A fact that we may utilize is that we have a closed form
 # expression to generate the nth Triangular number:
 #       T(n) = (n(n+1))/2
 # Furthermore we can take the inverse of this equation to check if any given
@@ -46,42 +42,41 @@
 # Note that this provides a valid check given any integer as to whether
 # it's a triangular number or not, just multiply that number by 8 and add 1
 # then check if that number is a perfect square (square root is an int) and
-# that the square root is odd (2n+1). Note that in the solution I
-# implemented below I just check for n an integer... easier than two checks
+# that the square root is odd (2n+1). Note that I'd really just solve for n
+# completely and check if is an int
 
-# knowing this let's first start at math.factorial(500) and check every
-# number until we find a perfect square. (I'm still wary)
-
+import time as T
 import math as M
 
 def triangleNumWithOverNFactors(n):
+    t1 = T.time()
     index = 2
     tNum = 3
     while numDivisors(tNum) <= n:
-        print "The", index, "triangle number", tNum, "has", numDivisors(tNum), "divisors"
         index += 1
         tNum += index
     answer = tNum
+    t2 = T.time() - t1
     print "The first triangle number with more than", n, "factors is",answer
+    print "This program took", t2, "seconds to run"
 
-
-
+#Each divisor (mod 0) under sqrt means there is a divisor above sqrt so we
+# can just add 2 to the count and not worry about finding the other. Note we
+# must correct if the number is a perfect square (can't double count the
+# square root!)
 def numDivisors(num):
     sqrt = num**.5
     divisor = 2
-    counter = 1
-    while divisor < sqrt:
+    counter = 2
+    while divisor <= sqrt:
         if num % divisor == 0:
-            counter += 1
+            counter += 2
         divisor += 1
+    if num**.5 % 1 == 0:
+        counter -= 1
     return counter
 
-def triangularNumWithOverNFactors2(n):
-    while isTriangularNumber(number) == False:
-        number += 1
-    print "The first triangular number with over", n, " unique factors is", number
-    return number
-
+# Alternative Solution, ToDo: finish
 def isTriangularNumber(num):
     if ((8*num+1)**.5-1)/2 % 1 == 0:
         print "This is the", ((8*num+1)**.5-1)/2, "triangular number"
@@ -90,5 +85,4 @@ def isTriangularNumber(num):
 
 if __name__ == "__main__":
     import sys
-    numDivisors
     triangleNumWithOverNFactors(int(sys.argv[1]))
