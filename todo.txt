@@ -14,6 +14,7 @@ Remaining ToDo's:
       yet abstract and powerful.
   9.) Also Nmadnani's in the next solution, although brute force like mine, uses list comprehensions
       well and would be good practice
+  10.) problem 12 has some slightly more optimized solutions. Same flavor though. On some guys page, google it
       
 
 Solved ToDo's:
