@@ -4,7 +4,7 @@ Problems^^
 Remaining ToDo's:
   1) problem 9, slightly more analytical solution isn't completely right yet
   2) Finish the correct, mathematical solution for problem 4 (Newton polynomial? divided differnce?)
-  3) Investigate better timing methods/ conventions
+  3) Investigate better timing methods/ conventions. (Search "mtimeit")
   4) Combine popular/ common functions into modules to import
   5) Write a test harness/ script that runs all of these? outputs a log file?
   6) After completing 25 problems go back and review/ tighten up code/ comments
@@ -15,7 +15,7 @@ Remaining ToDo's:
   9.) Also Nmadnani's in the next solution, although brute force like mine, uses list comprehensions
       well and would be good practice
   10.) problem 12 has some slightly more optimized solutions. Same flavor though. On some guys page, google it
-      
+
 
 Solved ToDo's:
   1) PROBLEM:
