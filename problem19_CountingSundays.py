@@ -14,44 +14,70 @@
 # How many Sundays fell on the first of the month during the 20th century (1
 # Jan 1901 to 31 Dec 2000)?
 
-import time
+import time as T
 
-def numSundays():
-    Day = [2,1,1,1901] # [DOW,DD,MM,YYYY]
+def numSundaysOnFirst():
+    start_time = T.time()
+    Day = [2,1,1,1900] # [DOW,DD,MM,YYYY]
+    counter = 0
+    while Day[3] != 2001:
+        Day = nextDay(Day)
+        if Day[0] == 1 and Day[1] == 1 and Day[3] != 1900:
+            counter += 1
+    total_time = T.time() - start_time
+    print "There are", counter, "Sundays that fell on the first of the month during the 20th century"
+    print "This program took", total_time, "seconds to run"
 
 
-def nextWeekDay(d):
+
+def nextWeekday(d):
     if d[0] % 7 == 0:
         d[0] = 1
     else:
         d[0] += 1
-    print "The next day is:", d
+    return d
+
+def nextYear(d):
+    d[3] += 1
+    return d
+
+def nextMonth(d):
+    if d[2] % 12 == 0:
+        d[2] = 1
+        d = nextYear(d)     # increment year if month is 12 -> 1
+    else:
+        d[2] += 1
+    return d
 
 def nextDay(d):
     if d[1] == 31:
         d = nextMonth(d)
         d[1] = 1
-    elif d[1] = 30 and d[2] in [9,4,6,11]
+    elif d[1] == 30 and d[2] in [9,4,6,11]:
         d = nextMonth(d)
         d[1] = 1
     elif d[2] == 2:
-        if d[1] == 28 and d[3] % 4 == 0 and d[3] % 1000 == 400:
+        if d[1] == 29:
+            d = nextMonth(d)
+            d[1] = 1
+        elif d[1] == 28 and d[3] % 4 != 0:
+            d = nextMonth(d)
+            d[1] = 1
+        elif d[1] == 28 and d[3] % 100 == 0:
+            if d[3] % 400 != 0:
+                d = nextMonth(d)
+                d[1] = 1
+            else:   # it's  leap year that's divisible by 400
+                d[1] += 1
+        else:   # it's a leap year that's not divisible by 100
             d[1] += 1
-        else
-
-
-def nextMonth(d):
-    if d[2] % 12 == 0:
-        d[2] = 1
-        d[3] += 1   # increment year if month is 12 -> 1
-    else:
-        d[2] += 1
-    print "The next month is:", d
-
-
+    else:       # it's a day before the 28th
+        d[1] += 1
+    d = nextWeekday(d)
+    return d
 
 if __name__ == "__main__":
     import sys
-    nextMonth([1,1,12,1901])
+    numSundaysOnFirst()
 
 
