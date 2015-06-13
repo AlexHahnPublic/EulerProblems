@@ -28,4 +28,4 @@ def oneLiner2(n):
 
 if __name__ == "__main__":
     import sys
-    oneLiner2(int(sys.argv[1]))
+    factSum(int(sys.argv[1]))
