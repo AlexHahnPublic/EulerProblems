@@ -66,5 +66,3 @@ if __name__ == "__main__":
     import sys
     longestCSUnder(int(sys.argv[1]))
 
-
-
