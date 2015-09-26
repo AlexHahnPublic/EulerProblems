@@ -5,7 +5,7 @@
 # What is the 10001st prime number?
 
 #Solution, Off the top of my head we could either greedily use trial division
-# or more efficiently use a Sieve (Sieve of Eratosthenes)
+# or more efficiently use a sieve (Sieve of Eratosthenes)
 
 # Using the contrapositive of if a number n is composite then it has at leas
 # one divisor less than sqrt(n)
@@ -21,8 +21,6 @@ def isPrime(num):
         else:
             i += 1
     return boolVal
-
-
 
 
 #Trial Division ignoring even numbers

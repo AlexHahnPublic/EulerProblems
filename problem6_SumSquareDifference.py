@@ -20,7 +20,7 @@ def difOfSquares(n):
     squareOfSums = squareOfSums**2
     difference = squareOfSums - sumOfSquares
     total_time = time.time() - start_time
-    print "The difference between the sum of the squares of the first", n, "natural number and the square of the sum is:", difference
+    print "The difference between the sum of the squares of the first", n, "natural numbers and the square of the sum is:", difference
     print " This program took:", total_time, "seconds to run"
 
 if __name__ == "__main__":

@@ -23,6 +23,22 @@ def primeFactors(num):
         i += 1
     return primeDecomp
 
+#TODO: Finish implementing this faster prime decomp method
+#better to use only up to square root prime factorization
+def primeFactorsBetter(num):
+    numOrig = num # to later check for sqrt case as to not double count
+    primeDecomp = []
+    i = 2
+    while i * i < num:
+        while num%i == 0:
+            primeDecomp.append(i)
+            num /= i
+        i += 1
+    primeDecomp.append(num)
+    print primeDecomp
+
+
+
 # Main Function
 def smallestMultiple(n):
     orig_n = n      # Original number for printing results later
@@ -63,3 +79,4 @@ def smallestMultiple(n):
 if __name__ == "__main__":
     import sys
     smallestMultiple(int(sys.argv[1]))
+    #primeFactorsBetter(int(sys.argv[1]))

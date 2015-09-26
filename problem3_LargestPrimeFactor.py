@@ -20,7 +20,8 @@ def largestPrimeFactor(n):
         while n%i == 0 and n/i != 1:
             n /= i
         i = i + 1 # TODO: Someone once told me increment this by 2 coz "it's faster,
-                  #not sure about that, need to check, kinda makes sense
+                  #not sure about that, need to check, kinda makes sense,
+                  #evens can't be prime
     total_time = time.time() - start_time
     print "The largest prime factor of the number", original_n, "is", n
     print "This program took:", total_time, "seconds to run"
