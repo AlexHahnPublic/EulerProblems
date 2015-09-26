@@ -64,7 +64,9 @@
 #
 # instead of writing out a hardcoded equation let's write a function that takes
 # in a number to stay under, in this case 999 and returns the sum of all
-# numbers divisible by just 3 or 5
+# numbers divisible by just 3 or 5 note that this function is extensible to
+# include any d distances if combined with a subfunction that calculates the
+# lcm of all combinations of two members of the set
 import math
 import time
 
