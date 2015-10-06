@@ -30,13 +30,17 @@
 # Reduction 1:
 # when n=0 we just have b, since we're going with the standard
 # definition of primes we can now limit b to be a positive prime. We could
-# generate the list of primes under 1001 using a sieve but I'd rather just
-# leverage our isPrime function as much as possible
+# generate the list of primes under 1001 using a sieve and iterate through
+# that list but I'd rather just leverage our isPrime function as much as
+# possible
 
 # Reduction 2: for n=1 we have 1+a+b, therefore a> (-b+1)
-# a must be an odd negative number (assuming v isn't 2 (honestly not a great
-# assumption to make since it's allowed but will make for now) and b ranges
+# a must be an odd negative number (We can validly assume b won't be 2) and b ranges
 # from -(a+1) to 1000
+
+# Coming back to it we can guaruntee that b won't be two because if it was then we
+# would could only generate primes for n=0,1, then 2 would be a composite because
+# 2^2 + a(2)+2 is divisible by 2, we know that the chain is longer than 2 already
 
 import time as T
 
