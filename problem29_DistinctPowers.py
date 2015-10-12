@@ -1,5 +1,4 @@
-# Euler Problem 29:
-# Consider all integer combinations of a^b for 2<=a<=5 and 2<=b<=5:
+# Euler Problem 29: # Consider all integer combinations of a^b for 2<=a<=5 and 2<=b<=5:
 #
 #       2^2=4, 2^3=8, 2^4=16, 2^5=32
 #       3^2=9, 3^3=27, 3^4=81, 3^5=243
@@ -16,25 +15,8 @@
 # Solution
 # -----------------------------------------------
 
-# I'd first like to take a brief second to note that some people might point
-# out that this problem is brute forceable in the case n=100. That's correct...
-# It doesn't take super long to weave through the 100x100=10000 entries and
-# unique/ form the set. HOWEVER my interest isn't in one instance of a problem/
-# one case but rather what solutions work best as the problem grows (both
-# time/clock cycle/FLOP analysis as well as the memory analysis). Anyone who
-# knows a thing or two about complexity would realize that you don't want to
-# calculating a^b for even modestly large a and b, much less creating
-# datastructures with those gigantic numbers (will reach over flow before too
-# long) and then uniquing/ whatever datastructure you choose to get the
-# cardinality of the set.
-
-# Therefore, for most of these problems instead of solving for a particular
-# sized problem I try to implement solutions that are more robust/ can
-# generalize to much more intensive computational cases. This is great because
-# instead of going with the "You can simply brute force that" kind of attitude
-# you usually have to investigate and take a second to look at the math,
-# whether it's basic number theory, or numerical methods, or whatever before
-# you implement the algorithm!
+# So it turns out to be a little more complex than this below algo, but
+# I'll leave it up as a good start/ baseline for the mathy solution
 
 # Let's write out the 2<=x,y<=10 case seeing if we can pick up the pattern as
 # we go (also see if there's a function that generates the number of distinct
@@ -74,6 +56,19 @@
 # strategy is to create a set of two-tuples then weave through the entries,
 # eliminating all the equivalent entries in place
 
+# So it turns out that we didn't cover all the repetitions with this below
+# strategy, for example this above method fails to point out that 4^6 is
+# equivalent to 8^4. This is because we only rewrite the exponent from the
+# current base upwards, ie 8^4=(8x8)x(8x8)=64^2, in our n=10 case the base is
+# >10 so we don't include however 4^6=8^4, however in our code we only
+# check that 2 and 3 is a divisor of the exponent in 4^6 and therefore
+# calculate that 4^6=16^3=64^2, since both bases are above 10, we don't
+# include, however if we break 4^6 down into 2^12 first then we can run our
+# divisors method and see that 8^4 does infacy get hit by 4^6. Originally we
+# didn't hit this in base 2 because 12 was bigger than our n. We can
+# rework our algo to run this kind of break down of the base then take all
+# combinations of the smallest base.
+
 import math as M
 from sets import Set
 import time as T
@@ -81,13 +76,15 @@ import time as T
 # Helper function, finds all divisors of a number, return a set
 def divisors(n):
     lst=[]
-    for i in range(2,int(M.sqrt(n))):
-        if n%i == 0:
-            lst.append(i)
-            lst.append(int(n/i))
-   # if n%M.sqrt(n) == 0:
-   #     lst.append(int(M.sqrt(n)))
-    print lst
+    y=2
+    sqrtLim=M.sqrt(n)
+    while y < sqrtLim:
+        if n%y == 0:
+            lst.append(y)
+            lst.append(int(n/y))
+        y+=1
+    if n%M.sqrt(n) == 0:
+        lst.append(int(M.sqrt(n)))
     return lst
 
 
@@ -105,9 +102,9 @@ def distinctPowers(n):
         print "the divisors of the power are", divisors(power)
         for i in divisors(power):
             print i, "is a divisor of the exponent"
-            if base**(power/i)<=n:
-                print "does not put the base over",n,"therefore adding",((base**(power/i),power/i)), "to the repeat list"
-                rptEntries.add((base**(power/i),power/i))
+            if base**i<=n:
+                print "does not put the base over",n,"therefore adding",((base**i,power/i)), "to the repeat list"
+                rptEntries.add((base**i,power/i))
 # Would like to know of a way to do this in place but not easy since we're
 # iterating over the set already and removing from it
     print rptEntries
@@ -135,8 +132,8 @@ def mkLst(n):
 
 if __name__=="__main__":
     import sys
-    #distinctPowers(int(sys.argv[1]))
-    divisors(int(sys.argv[1]))
+    distinctPowers(int(sys.argv[1]))
+    #divisors(int(sys.argv[1]))
     #For speed testing between Set and list for my curiosity
     #mkSet(int(sys.argv[1]))
     #mkLst(int(sys.argv[1]))
