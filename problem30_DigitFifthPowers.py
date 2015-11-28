@@ -40,8 +40,8 @@ def DigitNthPower():
     tt = T.time()-st
     print "The sum of all the numbers who's sum of its digits raised to the 5th power equal the number itself is:", total
     print "This program took", tt, "seconds to run"
-    
-            
+
+
 if __name__=="__main__":
     #import sys
     DigitNthPower()
