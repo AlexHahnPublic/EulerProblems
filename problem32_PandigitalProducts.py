@@ -51,7 +51,11 @@ def allPandigitalNums():
 
 # One Liner
 def oneLiner():
-     print sum(set(map(lambda x: int(x[0:4]),filter(lambda x:sorted([i for i in x]) == map(str,range(1,10)),[str(a*b)+str(a)+str(b) for a in range(1,2000) for b in range(1,100)]))))
+    import time as  T
+    start_time=T.time()
+    print "The sum of all products whose multiplicand, multiplier and product identity can be written as 1-9 pandigital is:"
+    print sum(set(map(lambda x: int(x[0:4]),filter(lambda x:sorted([i for i in x]) == map(str,range(1,10)),[str(a*b)+str(a)+str(b) for a in range(1,2000) for b in range(1,100)]))))
+    print "This program took", T.time()-start_time, "seconds to run"
 
 
 
