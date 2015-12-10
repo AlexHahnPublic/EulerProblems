@@ -136,7 +136,7 @@
 def NumSpiralDiags(n):
     import time as t
     start_time = t.time()
-#DON'T USE INT HERE! THROWS ANSWER OFF BY 1!!!
+#DON'T USE INT HERE! THROWS ANSWER OFF BY 1!!! very interesting
     ans = (2.0/3.0)*(n**3.0)+(1.0/2.0)*(n**2)+(4.0/3.0)*(n)-(3.0/2.0)
     total_time = t.time() - start_time
     print "The sum of the diagonals of a consecutive integer spiral forming an", n, "x", n, "array is:", ans
