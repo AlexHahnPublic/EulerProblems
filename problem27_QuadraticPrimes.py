@@ -16,7 +16,7 @@
 #       where |n| is the modulus/absolute value of n
 #       e.g. |11|=11 and |-4|=4
 
-# Find the product of the coefficients, a and bm for the quadratic 
+# Find the product of the coefficients, a and bm for the quadratic
 # expression that produces the maximum number of primes for consecutive values
 # of n, starting with n=0.
 
