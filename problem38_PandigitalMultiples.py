@@ -38,12 +38,24 @@ def isPandigital(n):
             return False
     return True
 
+def panMults():
+    st = T.time()
+    largestPan = 0
+    for i in range(1,10000):
+        prod = ''
+        multiplier = 1
+        while len(prod) < 9:
+            prod = prod + str(i*multiplier)
+            multiplier += 1
+        if len(prod) == 9 and isPandigital(prod):
+            if prod > largestPan:
+                largestPan = prod
+    tt = T.time() - st
+    print "The largest pandigital number that can be formed by the
+concatenation of a number and consecutive multiplications by 1,2,3,...is:", largestPan
+    print "This program took", tt, "seconds to run"
 
-
-def main(inp):
-    print "isPandigital Test:", isPandigital(inp)
 
 
 if __name__ == "__main__":
-    import sys
-    main(int(sys.argv[1]))
+    panMults()
