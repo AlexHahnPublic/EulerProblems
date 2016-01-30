@@ -1,3 +1,4 @@
+# Euler Problem 40:
 # An irrational decimal fraction is created by concatenating the positive
 # integers:
 #       0.123456789101112131415161718192021...
@@ -9,5 +10,27 @@
 #       d_1 x d_10 x d_100 x d_1000 x d_10000 x d_100000 x d_1000000
 
 import time as T
+
+def chapsConst():
+    startTime = T.time()
+
+   # Create the string representation, checking the length, the numbers 1
+   # through 500000 create enough digits (>1000000)
+    strRep = ''
+    for i in range(500000):
+        strRep = strRep + str(i)
+
+   # Multiply the exponentiation of 10^[1,...,7]
+    prod = 1
+    for i in range(7):
+        prod *= int(strRep[10**i])
+    totalTime = T.time() - startTime
+    print "The product of the 10^[0:7] decimal digits of Champernowne's Constant is:", prod
+    print "This program took", totalTime, "seconds to run"
+
+
+if __name__ == "__main__":
+    import sys
+    chapsConst()
 
 
