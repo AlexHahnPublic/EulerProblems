@@ -26,7 +26,7 @@
 # divisible by three. This means that all the permutations of those length
 # pandigitals will all be divisible by 3 and therefore not prime.
 
-# I think a very natural execution to think of is to generate primes then
+# I think a very natural logical progression to think of is to generate primes then
 # check if they're pandigital and take the largest one. But now knowing that they'll only be length 4
 # or 7 and that there are 7!=5040 ways to order 7 items and 4!=24 ways to order
 # 4 items giving us a total of only 5064 numbers to check, we start to feel
@@ -37,5 +37,33 @@
 # is 7654321. If we permute wisely and take the next largest 7 digit
 # pandigital number each step then we only need to proceed until we find the
 # first prime number!
+
+import time as T
+
+def LgPanPrime():
+    start = "7654321"
+
+
+def isPrime(n):
+    if n<2: return False
+    if n==2: return True
+    if n==3: return True
+    if n%2==0: return False
+    if n%3==0: return False
+    i=5
+    w=2
+    while i*i<=n:
+        if n%i==0:
+            return False
+        i+=w
+        w=6-w
+    return True
+
+
+if __name__ == '__main__':
+    import sys
+    #lst= Heaps(3,[1,2,3,4,5])
+    val=isPrime(int(sys.argv[1]))
+    print val
 
 
