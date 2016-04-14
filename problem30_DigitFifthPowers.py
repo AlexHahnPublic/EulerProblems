@@ -22,8 +22,7 @@
 # We can see that the sum of the largest 5 digit number with each number
 # raised to the fifth is 9^5+9^5+9^5+9^5+9^5=5*9^5=295245. So with 5 digits we
 # can make a 6 digit number 6*9^5=354294 so 355000 seems like a reasonable
-# bound. TODO: make functional, this will require a writing a simple
-# subfunction to calculate an upper bound
+# bound.
 
 import time as T
 
