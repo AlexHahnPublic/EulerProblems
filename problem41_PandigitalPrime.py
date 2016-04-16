@@ -7,8 +7,8 @@
 
 # Solution:
 # Well we can provide a very logical/cursory upperbound of 987654321 since
-# any number bigger than that can't be pandigital. We can then think about
-# the sum of the digits of each length pandigital number:
+# any number bigger than that can't be pandigital in the normal sense. We can
+# then think about the sum of the digits of each length pandigital number:
 
 # P(2) = 1+2 = 3
 # P(3) = 1+2+3 = 6
@@ -26,12 +26,12 @@
 # divisible by three. This means that all the permutations of those length
 # pandigitals will all be divisible by 3 and therefore not prime.
 
-# I think a very natural logical progression to think of is to generate primes then
-# check if they're pandigital and take the largest one. But now knowing that they'll only be length 4
-# or 7 and that there are 7!=5040 ways to order 7 items and 4!=24 ways to order
-# 4 items giving us a total of only 5064 numbers to check, we start to feel
-# that generating pandigitals \it{then} checking primality might be the way
-# to go.
+# I think a very natural logical progression to think of is to generate primes
+# then check if they're pandigital and take the largest one. But now knowing
+# that they'll only be length 4 or 7 and that there are 7!=5040 ways to order 7
+# items and 4!=24 ways to order 4 items giving us a total of only 5064 numbers
+# to check, we start to feel that generating pandigitals \it{then} checking
+# primality might be the way to go.
 
 # Lastly to top it off we know that the largest 7 digit pandigital number
 # is 7654321. If we permute wisely and take the next largest 7 digit
@@ -40,8 +40,11 @@
 
 import time as T
 
-def LgPanPrime():
-    start = "7654321"
+#def LgPanPrime():
+#    start = "7654321"
+#    found = False
+#    while !found:
+#        if
 
 
 def isPrime(n):
@@ -60,10 +63,32 @@ def isPrime(n):
     return True
 
 
+def isPandigital(n):
+    strRep=str(n)
+    check=[0]*len(str(n))
+    # First check length
+    # Check digits for 0-len(str(n)) span and no reps
+    strRep=str(n)
+    for dig in strRep:
+        if check[int(dig)]==1:
+            return False
+        else:
+            check[int(dig)]=1
+    return True
+
+
+
+def main(inp):
+    a = isPrime(int(inp))
+    b = isPandigital(int(inp))
+    print "Result of isPrime() on", inp, "is:", a
+    print "Result of isPandigital() on", inp, "is:", b
+
+
+
 if __name__ == '__main__':
     import sys
     #lst= Heaps(3,[1,2,3,4,5])
-    val=isPrime(int(sys.argv[1]))
-    print val
+    main(sys.argv[1])
 
 
