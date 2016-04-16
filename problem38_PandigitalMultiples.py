@@ -51,8 +51,7 @@ def panMults():
             if prod > largestPan:
                 largestPan = prod
     tt = T.time() - st
-    print "The largest pandigital number that can be formed by the
-concatenation of a number and consecutive multiplications by 1,2,3,...is:", largestPan
+    print "The largest pandigital number that can be formed by the concatenation of a number and consecutive multiplications by 1,2,3,...is:", largestPan
     print "This program took", tt, "seconds to run"
 
 

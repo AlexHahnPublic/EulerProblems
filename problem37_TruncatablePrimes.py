@@ -1,6 +1,6 @@
 # Euler Problem 37
 # The number 3797 has an interesting property. Being prime itself, it is
-# possible to continuously remove digits from left to right, and still reamain
+# possible to continuously remove digits from left to right, and still remain
 # prime at each stage: 3793, 797, 97, and 7. Similarly we can work from right
 # to left: 3797, 379, 37, and 3.
 # Find the sum of the only eleven primes that are both truncatable form left to
@@ -9,8 +9,9 @@
 # NOTE: 2, 3, 5, and 7, are not considered to be truncatable primes.
 
 
-# Solution: brute force. We can probably right a conditions function that
-# checks the number for any 1s, 2s, 4s, 5s, 6s, 8s, 9s, and 0s and skips
+# Solution: brute force. We can probably create a filter function to limit the
+# Search space.
+# Check the number for any 1s, 2s, 4s, 5s, 6s, 8s, 9s, and 0s and skip
 # any further validations to cut down some clock cycles, but it runs pretty
 # fast as is (and has no potential to generalize any further since there
 # are only 11 of these numbers... ie don't need it to be any more
