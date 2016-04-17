@@ -37,14 +37,26 @@
 # is 7654321. If we permute wisely and take the next largest 7 digit
 # pandigital number each step then we only need to proceed until we find the
 # first prime number!
+# For a first effort though, instead of cracking out the next smallest number
+# algo, I'll just decrement by 1
 
 import time as T
 
-#def LgPanPrime():
-#    start = "7654321"
-#    found = False
-#    while !found:
-#        if
+def LgPanPrime():
+    st = T.time()
+    checking = 7654321
+    found = False
+    while not found:
+        if isPrime(checking) and isPandigital(checking):
+            answer = checking
+            found = True
+        else:
+            checking -= 1
+    tt = T.time()-st
+    print "The largest pandigital prime is:", answer
+    print "This program took", tt, "Seconds to run"
+
+
 
 
 def isPrime(n):
@@ -65,30 +77,35 @@ def isPrime(n):
 
 def isPandigital(n):
     strRep=str(n)
-    check=[0]*len(str(n))
+    if '0' in strRep:
+        return False
+    check=[0]*len(strRep)
     # First check length
-    # Check digits for 0-len(str(n)) span and no reps
-    strRep=str(n)
+    # Check digits for 0-n span/ no reps
     for dig in strRep:
-        if check[int(dig)]==1:
+        if int(dig)>len(strRep):
+            return False
+        elif check[int(dig)-1]==1:
             return False
         else:
-            check[int(dig)]=1
+            check[int(dig)-1]=1
     return True
 
 
-
-def main(inp):
+def testFunctions(inp):
     a = isPrime(int(inp))
     b = isPandigital(int(inp))
     print "Result of isPrime() on", inp, "is:", a
     print "Result of isPandigital() on", inp, "is:", b
+    LgPanPrime()
+
+
+
+
 
 
 
 if __name__ == '__main__':
-    import sys
-    #lst= Heaps(3,[1,2,3,4,5])
-    main(sys.argv[1])
+    LgPanPrime()
 
 

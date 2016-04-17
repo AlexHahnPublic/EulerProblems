@@ -25,7 +25,6 @@ def isPandigital(n):
     if len(strRep) != 10:
         return False
     # Check digits for 0-9 span and no reps
-    strRep=str(n)
     for dig in strRep:
         if check[int(dig)]==1:
             return False
