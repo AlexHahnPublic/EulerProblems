@@ -42,7 +42,7 @@
 # the properties
 #
 # I'm yet to see an analytical solution, I'm also yet to see someone address
-# this new upper bound problem rigerously like I tried to do. However I did see
+# this new upper bound problem rigorously like I tried to do. However I did see
 # a nice boolean hashtable lookup for all the pentagonal numbers up to n. This
 # would work very nicely for my solution in a formal rigerous manner as we
 # could find the first pair, then generate the hashmap with ~5mil elements,
@@ -70,7 +70,6 @@ def isPentagonal(num):
     # much about error propagation... we are going to define a tolerance for
     # what mod 1 means... might not want that 2/3 approximation propagating too
     # much!)
-    x=(((24.0*num+1)**.5+1)/6)
     if (((24.0*num+1)**.5+1)/6)%1<.00001:
         return True
     else:
