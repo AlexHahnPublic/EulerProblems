@@ -23,18 +23,31 @@
 # Whichever method we choose, if we exhaust the list and find no solutions that
 # form the number with a prime + twice a square then we've found the smallest
 # odd composite that disproves the conjecture. I'm going to choose to
-# generating the squares under that number because this grows much slower (less
-# combinations to check), than generating all the primes under a number, plus
+# generating the squares under that number because this grows faster (less
+# combinations to check) than generating all the primes under a number, plus
 # the primality check is pretty quick as well.
 
 import time as T
 
 def main():
+    st = T.time()
     check = 35
     found = False
 
-    #while not found:
-        #if len(primeFactors(check)) > 1:
+    while not found:
+        if len(primeFactors(check)) > 1:
+            lst = lstSquaresX2(check)
+            lstCheck =[]
+            for expX2 in lst:
+                lstCheck.append(isPrime(check-expX2))
+            if True not in lstCheck:
+                found = True
+                ans = check
+        check += 2
+        tt = T.time()-st
+    print "The first odd composite number that cannot be written as the sum of a prime and twice a square is:", ans
+    print "This program took", tt, "Seconds to run"
+
 
 
 def primeFactors(num):
@@ -45,23 +58,34 @@ def primeFactors(num):
             primeDecomp.append(i)
             num /= i
         i += 1
-    print primeDecomp
+    return primeDecomp
 
-def lstSquares(num):
+def lstSquaresX2(num):
     curr = 2
-    lst = [1]
+    lst = [2]
 
-    while curr**2<num:
-        lst.append(curr**2)
-    print lst
+    while curr**2*2<num:
+        lst.append(curr**2*2)
+        curr+=1
+    return lst
 
-
+def isPrime(n):
+    if n<2: return False
+    if n==2: return True
+    if n==3: return True
+    if n%2==0: return False
+    if n%3==0: return False
+    i=5
+    w=2
+    while i*i<=n:
+        if n%i==0:
+            return False
+        i+=w
+        w=6-w
+    return True
 
 
 if __name__ == "__main__":
-    import sys
-    primeFactors(int(sys.argv[1]))
-    lstSquares(int(sys.argv[1]))
-
+    main()
 
 
