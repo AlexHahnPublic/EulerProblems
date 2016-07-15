@@ -14,7 +14,8 @@
 #   be very safe to just generate all the primes below 500,000 (maybe even
 #   250,000) since we're probably not going to find too many longer chains 
 #   of consecutive primes that add to a number below one million. We can make
-#   this optimization later if necessary. 
+#   this optimization later if necessary.  AFter running with input one
+#   million, we will have to lower the upper bound.
 #   2) Next we can generate all possible sums of all possible
 #   consecutive sets. The best way to do this is with a "sliding window"
 #   approach. First we'll find all the length two sums, then length three,
@@ -26,38 +27,35 @@
 import time as T
 
 def main(num):
+    st = T.time()
     primes = sieveOfEratosthenes(num)
-    print "primes calculated"
+    print "primes calculated, len is:", len(primes)
     lensSums = lstOfLensAndSums(primes)
-    print "all lengths and sums calculated"
+    print "all lengths and sums calculated, len is:", len(lensSums)
     ind = len(lensSums)-1
     print "ind decided"
     found = False
 
     while not found:
-        print "Checking", lensSums[ind]
+        #print "Checking", lensSums[ind]
         if isPrime(lensSums[ind][1]):
             ans = lensSums[ind][1]
-            print ans
             found = True
         ind -= 1
+    tt = T.time()-st
+    print "The largest prime under", num, "that can be written as the sum of the most consecutive primes is", ans
+    print "This program took", tt, "Seconds to run"
 
-
-
-def sieveOfEratosthenes(num):
-    curr = 2
-    primes = []
-    notPrimes = []
-
-    while curr < num:
-        if curr not in notPrimes:
-            primes.append(curr)
-            mult=2
-            while mult*curr < num:
-                notPrimes.append(mult*curr)
-                mult += 1
-        curr += 1
-    return primes
+def sieveOfEratosthenes(n):
+    size = n//2
+    sieve = [1]*size
+    limit = int(n**0.5)
+    for i in range(1,limit):
+        if sieve[i]:
+            val = 2*i+1
+            tmp = ((size-1) - i)//val 
+            sieve[i+val::val] = [0]*tmp
+    return [2] + [i*2+1 for i, v in enumerate(sieve) if v and i>0]
 
 def lstOfLensAndSums(lst):
     lensSums = []
@@ -87,6 +85,8 @@ def isPrime(num):
 if __name__ == "__main__":
     import sys
     #sieveOfEratosthenes(int(sys.argv[1]))
-    #lstOfLensAndSums([1,2,3,999996])
+    #a = [x for x in range(1000)]
+    #print lstOfLensAndSums(a)
     #isPrime(int(sys.argv[1]))
     main(int(sys.argv[1]))
+
