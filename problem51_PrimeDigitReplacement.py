@@ -6,7 +6,7 @@
 # 5-digit number is the first example having seven primes among the ten
 # generated numbers, yielding the family: 56003, 56113, 56333, 56443, 56663,
 # 56773, 56993. Consequently 56003 being the first member of this family, is
-# the the smallest prime with this property.
+# the smallest prime with this property.
 #
 # Find the smallest prime which, by replacing part of the number (not
 # necessarily adjacent digits) with the same digit, is part of an eight prime
@@ -16,9 +16,10 @@
 # ---------------------------------------------------------
 # Right off the bat we know that permuting the last digit (with any combination
 # of other digits) will not possibly provide an answer since half of those
-# candadites will be even and therefore could not be prime, leaving at most 5
+# candidates will be even and therefore could not be prime, leaving at most 5
 # primes in the family. This means we will only have to permute the first n-1
-# digits in all the combinations.
+# digits in all the combinations. Secondly, a little number theory goes a long
+# way in this problem in terms of limiting the search space.
 # I think that the best algorithmic approach to this problem would be to:
 #   1) generate the first n primes (say 100)
 #   2) starting with the first digit, cycle though the digits, while checking
@@ -27,4 +28,7 @@
 #   their will not be a way to end up with 8 of the 10 cycled numbers being
 #   prime.
 #   3) Move to the second digit and repeat step 2. Continue in this manner
-#   until
+#   until you've reached the n-1 digit. After completing all the single digit
+#   rotation checks take the first two digits and cycle through the 10 digits,
+#   then the first and third, then first and fourth, all the way up to the
+#   first and n-1
