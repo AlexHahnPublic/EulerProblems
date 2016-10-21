@@ -25,7 +25,8 @@ def main(maxN):
     total = 0
     for n in range(maxN+1):
         for r in range(n):
-            if choose(n,r)>10000000:
+            if choose(n,r)>1000000:
+                #print "found one:", n, "Choose", r, "=", choose(n,r)
                 total +=1
     tt = T.time() - st
     print "The number of n choose r values that come out to be greater than 10000000 (one million) for maxn =", maxN, "is:", total
